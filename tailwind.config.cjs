@@ -1,15 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: "#09090A",
+      },
+    },
   },
   plugins: [],
-  corePlugins: {
-    preflight: true,
-  },
 };
