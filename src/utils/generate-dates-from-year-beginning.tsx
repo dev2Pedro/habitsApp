@@ -1,13 +1,12 @@
 import dayjs from "dayjs";
 
-export function generateDatesFromYearBeginning() {
-  const firtsDayOfTheYear = dayjs().startOf("year");
-  const today = new Date();
+export function generateNextDays(amount: number) {
+  const today = dayjs().startOf("day");
+  const dates: Date[] = [];
 
-  const dates = [];
-  let compareDate = firtsDayOfTheYear;
+  let compareDate = today;
 
-  while (compareDate.isBefore(today)) {
+  for (let i = 0; i < amount; i++) {
     dates.push(compareDate.toDate());
     compareDate = compareDate.add(1, "day");
   }
