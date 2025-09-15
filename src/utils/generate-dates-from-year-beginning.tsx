@@ -1,12 +1,10 @@
 import dayjs from "dayjs";
 
-export function generateNextDays(amount: number) {
-  const today = dayjs().startOf("day");
+export function generateRangeDates(from: Date, to: Date) {
   const dates: Date[] = [];
+  let compareDate = dayjs(from).startOf("day");
 
-  let compareDate = today;
-
-  for (let i = 0; i < amount; i++) {
+  while (compareDate.isBefore(to) || compareDate.isSame(to, "day")) {
     dates.push(compareDate.toDate());
     compareDate = compareDate.add(1, "day");
   }
