@@ -1,25 +1,12 @@
 import dayjs from "dayjs";
 
-/**
- * Gera uma lista de datas consecutivas a partir de uma data inicial.
- *
- * @param startDate Data inicial (Date ou string ISO)
- * @param amount Quantidade de dias a gerar
- * @returns Array de objetos Date
- */
-export function generateNextDaysFrom(
-  startDate: Date | string,
-  amount: number
-): Date[] {
-  const firstDay = dayjs(startDate).startOf("day");
-  const dates: Date[] = [];
-
-  let compareDate = firstDay;
-
-  for (let i = 0; i < amount; i++) {
-    dates.push(compareDate.toDate());
-    compareDate = compareDate.add(1, "day");
+export function getCurrentWeekDays(): Date[] {
+  const startOfWeek = dayjs().startOf("week"); // domingo
+  const days: Date[] = [];
+  for (let i = 0; i < 7; i++) {
+    days.push(startOfWeek.add(i, "day").toDate());
   }
-
-  return dates;
+  return days;
 }
+
+console.log(getCurrentWeekDays());
