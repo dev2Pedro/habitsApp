@@ -1,12 +1,23 @@
 import dayjs from "dayjs";
 
-export function getCurrentWeekDays(): Date[] {
-  const startOfWeek = dayjs().startOf("week"); // domingo
+export function getCurrentMonthFromSunday(): Date[] {
+  const startOfMonth = dayjs().startOf("month");
+  const endOfMonth = dayjs().endOf("month");
+
+  const start = startOfMonth.startOf("week");
+
   const days: Date[] = [];
-  for (let i = 0; i < 7; i++) {
-    days.push(startOfWeek.add(i, "day").toDate());
+  let current = start;
+
+  while (
+    current.isBefore(endOfMonth.endOf("week")) ||
+    current.isSame(endOfMonth.endOf("week"))
+  ) {
+    days.push(current.toDate());
+    current = current.add(1, "day");
   }
+
   return days;
 }
 
-console.log(getCurrentWeekDays());
+console.log(getCurrentMonthFromSunday());

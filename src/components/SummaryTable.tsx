@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getCurrentWeekDays } from "../utils/generate-dates-from-year-beginning";
+import { getCurrentMonthFromSunday } from "../utils/generate-dates-from-year-beginning";
 import { HabitDay } from "./HabitDay";
 import { api } from "../lib/axios";
 import dayjs from "dayjs";
 
 const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"];
 
-const summaryDates = getCurrentWeekDays();
+const summaryDates = getCurrentMonthFromSunday();
 
 const minimumSummaryDatesSize = 18 * 7;
 
