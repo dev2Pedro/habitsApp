@@ -9,7 +9,7 @@ export function ProgressBarIndicator(props: ProgressBarProps) {
     <Progress.Root className="bg-zinc-700 rounded-xl w-full h-3 mt-4">
       <Progress.ProgressIndicator
         aria-valuenow={props.progress}
-        className="bg-violet-600 h-3 rounded-xl"
+        className="bg-violet-600 h-3 rounded-xl transition-all"
         style={{ width: `${props.progress}%` }}
       />
     </Progress.Root>
